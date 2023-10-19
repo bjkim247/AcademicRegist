@@ -10,17 +10,17 @@ import java.sql.Statement;
 public class ConnectDatabase {
 	public static Connection makeConnection() {
 		String ur1 = "jdbc:oracle:thin:@127.0.0.1:1521";
-		String user = "hr";
-		String pwd = "hr";
+		String user = "javauser";
+		String pwd = "javauser";
 		Connection con = null;
 		try {
 			// 1. 드라이버 로드
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-//			System.out.println("OracleDriver 적재성공");
+			System.out.println("OracleDriver 적재성공");
 			
 			// 2. 오라클데이타베이스 연결
 			con = DriverManager.getConnection(ur1,user,pwd);
-//			System.out.println("오라클 접속 성공");
+			System.out.println("오라클 접속 성공");
 			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
