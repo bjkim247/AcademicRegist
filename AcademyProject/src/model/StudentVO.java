@@ -100,26 +100,24 @@ public class StudentVO {
 	}
 	
 	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(no, s_num, sd_address, sd_birthday, sd_date, sd_email, sd_id, sd_name, sd_num, sd_passwd,
-				sd_phone);
+		return Objects.hash(this.no,this.sd_num,this.sd_name);
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		if(!(obj instanceof StudentVO)) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		StudentVO other = (StudentVO) obj;
-		return no == other.no && Objects.equals(s_num, other.s_num) && Objects.equals(sd_address, other.sd_address)
-				&& Objects.equals(sd_birthday, other.sd_birthday) && Objects.equals(sd_date, other.sd_date)
-				&& Objects.equals(sd_email, other.sd_email) && Objects.equals(sd_id, other.sd_id)
-				&& Objects.equals(sd_name, other.sd_name) && Objects.equals(sd_num, other.sd_num)
-				&& Objects.equals(sd_passwd, other.sd_passwd) && Objects.equals(sd_phone, other.sd_phone);
+		}
+		StudentVO svo = (StudentVO)obj;
+		
+		return svo.no == this.no && svo.sd_num.equals(this.sd_num) && svo.sd_name.equals(sd_name);
 	}
+
+
+
+	
 	@Override
 	public String toString() {
 		return "StudentVO [no=" + no + ", sd_num=" + sd_num + ", sd_name=" + sd_name + ", sd_id=" + sd_id
