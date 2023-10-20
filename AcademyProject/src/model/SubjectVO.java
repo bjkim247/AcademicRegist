@@ -1,10 +1,12 @@
 package model;
 
+import java.util.Objects;
+
 public class SubjectVO {
 
-	private int no;
-	private String s_num;
-	private String s_name;
+	private int no;  // 학과 일련번호
+	private String s_num;  // 학과 번호
+	private String s_name;  // 학과명
 	public SubjectVO() {
 		super();
 	}
@@ -39,7 +41,22 @@ public class SubjectVO {
 	}
 	@Override
 	public String toString() {
-		return "일련번호 : " + getNo() + ", 학과명" + getS_num() + ", 학과 번호" + getS_name();
+		return String.format("%3d \\t %-30s \\t\\t %-10s", no, s_num, s_name);
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(no, s_name, s_num);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SubjectVO other = (SubjectVO) obj;
+		return no == other.no && Objects.equals(s_name, other.s_name) && Objects.equals(s_num, other.s_num);
 	}
 	
 }

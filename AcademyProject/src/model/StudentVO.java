@@ -1,17 +1,19 @@
 package model;
 
+import java.util.Objects;
+
 public class StudentVO {
-	private int no;
-	private String sd_num;
-	private String sd_name;
-	private String sd_id;
-	private String sd_passwd;
-	private String s_num;
-	private String sd_birthday;
-	private String sd_phone;
-	private String sd_address;
-	private String sd_email;
-	private String sd_date;
+	private int no;  // 학생 일련번호
+	private String sd_num;  // 학번
+	private String sd_name;  // 이름
+	private String sd_id;  // 아이디
+	private String sd_passwd;  // 비밀번호
+	private String s_num;  // 학과번호
+	private String sd_birthday;  // 생년월일
+	private String sd_phone;  // 핸드번호
+	private String sd_address;  // 주소
+	private String sd_email;  // 이메일
+	private String sd_date;  // 등록일
 	public StudentVO() {
 		super();
 	}
@@ -95,6 +97,34 @@ public class StudentVO {
 	}
 	public void setSd_date(String sd_date) {
 		this.sd_date = sd_date;
+	}
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(no, s_num, sd_address, sd_birthday, sd_date, sd_email, sd_id, sd_name, sd_num, sd_passwd,
+				sd_phone);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StudentVO other = (StudentVO) obj;
+		return no == other.no && Objects.equals(s_num, other.s_num) && Objects.equals(sd_address, other.sd_address)
+				&& Objects.equals(sd_birthday, other.sd_birthday) && Objects.equals(sd_date, other.sd_date)
+				&& Objects.equals(sd_email, other.sd_email) && Objects.equals(sd_id, other.sd_id)
+				&& Objects.equals(sd_name, other.sd_name) && Objects.equals(sd_num, other.sd_num)
+				&& Objects.equals(sd_passwd, other.sd_passwd) && Objects.equals(sd_phone, other.sd_phone);
+	}
+	@Override
+	public String toString() {
+		return "StudentVO [no=" + no + ", sd_num=" + sd_num + ", sd_name=" + sd_name + ", sd_id=" + sd_id
+				+ ", sd_passwd=" + sd_passwd + ", s_num=" + s_num + ", sd_birthday=" + sd_birthday + ", sd_phone="
+				+ sd_phone + ", sd_address=" + sd_address + ", sd_email=" + sd_email + ", sd_date=" + sd_date + "]";
 	}
 	
 	
