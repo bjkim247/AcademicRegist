@@ -1,15 +1,18 @@
-package view;
-
-import java.awt.Menu;
-
 import controller.LessonRegisterManager;
 import controller.StudentRegisterManager;
 import controller.SubjectRegisterManager;
 import controller.TraineeRegisterManager;
+import view.LESSON_CHOICE;
+import view.MENU_CHOICE;
+import view.MenuViewer;
+import view.STUDENT_CHOICE;
+import view.SUBJECT_CHOICE;
+import view.TRAINEE_CHOICE;
 
 
 public class AcademicRegisterMain {
 	public static void main(String[] args) {
+		System.out.println("*******************test************************");
 		mainMenu();
 	}
 
@@ -119,15 +122,15 @@ public class AcademicRegisterMain {
 		switch (choice) {
 		case STUDENT_CHOICE.INSERT:
 			System.out.println("");
-			studentManager.studnetRegistr();
+			studentManager.studentRegistr();
 			break;
 		case STUDENT_CHOICE.UPDATE:
 			System.out.println("");
-			studentManager.studnetUpdate();
+			studentManager.studentUpdate();
 			break;
 		case STUDENT_CHOICE.LIST:
 			System.out.println("");
-			studentManager.studnetTotalList();
+			studentManager.studentTotalList();
 			break;
 		case STUDENT_CHOICE.MAIN:
 			return;
